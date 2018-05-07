@@ -1,0 +1,15 @@
+<h3>Infos de l'évènement n° <%= @event.id %></h3>
+
+<div class="form-group border">
+<p>Créé par <%= @event.creator.username %></p>
+<p><%= @event.description %></p>
+<p>Date de l'évènement : <%= @event.date %></p>
+<p>Rendez-vous : <%= @event.place %></p>
+</div>
+
+<div class="form-group border">
+  <h4>Liste des participants</h4>
+  <% @event.attendees.each do |att| %></p>
+  <p><%= att.name %></p>
+  <% end %>
+</div>

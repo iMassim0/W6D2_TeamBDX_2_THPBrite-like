@@ -1,24 +1,68 @@
-# README
+# Week n°X on Day n°X - THP by Team BDX - XXXXX
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Projet du jour :
 
-Things you may want to cover:
+Le projet du jour consisiste
 
-* Ruby version
+## Pré-requis et installation :
 
-* System dependencies
+1 - Veuillez svp vous relever de votre PLS.
 
-* Configuration
+2 - Veuillez cloner ce repo sur votre machine avec la commande suivante (le dossier créé s'appelera "WXDX_TeamBDX_XXXXXX") :
 
-* Database creation
+```
+  $ git clone
+```
 
-* Database initialization
+3 - Se rendre dans le dossier souhaité, et effectuer ces XX commandes suivantes pour initialiser le fonctionnement :
 
-* How to run the test suite
+```
+  $ bundle install &&
+```
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Fonctionnement des exercices :
 
-* ...
+### Exercice
+
+Cet exercice
+
+```
+  $
+```
+
+*PS : .*
+
+## Conditions de test des exercices pour les corrections
+
+**Pour faciliter la correction des exercices précédents voici les éléments à tester dans la console rails, si vous le souhaitez. Le but est de créer des instances de classes, et des liaisons entre celles-ci pour observer le bon fonctionnement des programmes. Les commandes peuvent être :**
+
+**NOTA : $ = terminal || > = console rails**
+
+### Exercice
+
+```
+  >
+
+  $
+```
+
+## Contributeurs
+
+@bab - Baptiste ROGEON
+
+@massimo - Maxime FLEURY
+
+<p align="center">
+  <img src="THP_BDX.png"/>
+</p>
+
+## Pour aller plus loin
+
+### Au début, t'es comme ca :
+
+
+### A 18h, tu te dis ca :
+
+
+### A 23h52 :

@@ -8,8 +8,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '0a4473d62e1fa1a028561bfe18d73fe04c8a90d05102ba24bc8a20c9961706211550f034efc15c9e802c2ebfa0e7dbcb3e61aec783837ccee7d1922474c661ce'
-  
+  # config.secret_key = '11dbae29b0476b5ca3dc073828433f1d26f23c4c505d31d644ade770957fe48c52e85e4ad28dca7c28120c78c0a3418c05b65b374d356ae2eb7fb8dd0bbe6f98'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -58,6 +58,8 @@ Devise.setup do |config|
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
   config.strip_whitespace_keys = [:email]
+
+  config.authentication_keys = [ :login ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -114,7 +116,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '179df8d59d46050974648b9f091953b9cdfdf4302afa7d67fbbcf12367087b2baebe646ab8eb9f515453971dbd2cfe82b58702119df5f2226ccfec246ab8db6a'
+  # config.pepper = 'f26c109fc2a4288f8ddbce75d140bd5a1ac11da5c31fcd518f65b03e2965c57804a4843962e22b2ca52fe736b556d66702b6141ca0037d972e72dbd1db93dd5d'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -252,6 +254,8 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
+  config.reset_password_keys = [ :username ]
+  config.confirmation_keys = [ :username ]
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
