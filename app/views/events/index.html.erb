@@ -2,21 +2,6 @@
 <hr>
 <% if user_signed_in? %>
 
-  <!-- <div class="container">
-    <h4>Voici les évènements auxquels tu participes : </h4>
-      <div class="d-flex align-content-start flex-wrap">
-  <% @attending_list.each_with_index do |event, i| %>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= event.date %> on <%= event.place %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= event.creator.username %></h6>
-          <p class="card-text"><%= event.description %></p>
-          <p><%= link_to "Plus d'infos", event_path(event.id), class: "btn btn-outline-secondary" %></p>
-        </div>
-      </div>
-    <% end %>
-    </div>
-  </div> -->
 <hr>
 <div class="container">
   <h4>Voici les évènements que tu as créé : </h4>
