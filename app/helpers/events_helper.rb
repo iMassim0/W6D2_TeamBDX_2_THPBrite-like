@@ -14,16 +14,15 @@ module EventsHelper
     @past
   end
 
-  def attending?
-    @attending = []
-    if !current_user.attending_events == nil
-      current_user.attending_events.each do |event|
-        if event.date > Time.now
-          @attending << event
-        end
-      end
-    end
-  end
+  # def attending?
+  #   @attending = []
+  #   if !(current_user.event_attendees == nil)
+  #     current_user.event_attendees.each do |event|
+  #       @attending << event
+  #     end
+  #   end
+  #   @attending
+  # end
 
 def creator(events)
   @current_user = current_user
@@ -32,7 +31,6 @@ def creator(events)
       if event.creator_id == @current_user.id
         @created_events << event
       end
+    end
   end
-end
-
 end

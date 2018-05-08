@@ -12,7 +12,7 @@ class EventsController < ApplicationController
       if @event.save
         redirect_to event_path(@event.id)
       else
-        flash.now[:danger] = "Couldn't save."
+        flash.now[:alert] = "Couldn't save."
         render action: "new"
       end
     else
@@ -25,14 +25,15 @@ class EventsController < ApplicationController
       @events = Event.all
       events_aging(@events)
       creator(@events)
-      @attending_list = attending?
     else
-      flash[:danger] = "Veuillez vous connecter pour accéder à la liste des évènements."
+      flash[:alert] = "Veuillez vous connecter pour accéder à la liste des évènements."
       redirect_to new_user_session_path
     end
   end
 
   def show
+    puts "salut"
+    puts params
     if user_signed_in?
       @event = Event.find(params[:id])
       @attending_list = attending?
@@ -41,21 +42,28 @@ class EventsController < ApplicationController
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+    @event.update(params_event)
+    if @event.save
+      redirect_to events_path(@event.id)
+    end
+  end
+
   def subscribe
     @event = Event.find(params[:event])
-    @current_user = current_user
-    @event.attendees << @current_user
-    flash[:success] = "Tu as bien rejoint l'évènement !!"
-    redirect_to user_path(@current_user.id)
+    @user = current_user
+    @event.attendees << @user
+    flash[:notice] = "Tu as bien rejoint l'évènement !!"
+    redirect_to event_path(@event)
   end
 
   def unsubscribe
     @event = Event.find(params[:event])
-    @current_array = []
-    @current_array << current_user
-    @event.attendees -= @current_array
-    flash[:success] = "Tu as bien quitté l'évènement !!"
-    redirect_to user_path(@current_user.id)
+    @user = current_user
+    @event.attendees.delete(@user)
+    flash[:notice] = "Tu as bien quitté l'évènement !!"
+    redirect_to event_path(@event)
   end
 
   private
