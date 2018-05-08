@@ -1,37 +1,68 @@
 <h1>Index des events</h1>
-
+<hr>
 <% if user_signed_in? %>
-  <div class="d-flex justify-content-center">
-    <div class="d-flex align-items-center">
-      <p>Voici les évènements auquel tu participes : </p>
-</div>
-</div>
-  <div class="d-flex justify-content-center ">
-    <div class="container">
-      <h4>Upcoming events :</h4>
-  <% @upcoming.each_with_index do |event, i| %>
-      <div class="form-group border border-muted">
-        <p><%= event.creator.username %></p>
-        <p><%= event.description %></p>
-        <p><%= event.date %></p>
-        <p><%= event.place %></p>
-        <%= link_to "Plus d'infos", event_path(event.id), class: "btn btn-outline-secondary" %>
+
+  <div class="container">
+    <h4>Voici les évènements auxquel tu participes : </h4>
+      <div class="d-flex align-content-start flex-wrap">
+  <% @created_events.each_with_index do |event, i| %>
+      <div class="card" style="width: 18rem;">
       </div>
     <% end %>
     </div>
   </div>
+<hr>
+<div class="container">
+  <h4>Voici les évènements que tu as créé : </h4>
+  <div class="d-flex align-content-start flex-wrap">
+<% @created_events.each_with_index do |event, i| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= event.date %> on <%= event.place %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= event.creator.username %></h6>
+      <p class="card-text"><%= event.description %></p>
+      <p><%= link_to "Plus d'infos", event_path(event.id), class: "btn btn-outline-secondary" %></p>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
+<hr>
+  <div class="container">
+    <h4>Upcoming events :</h4>
+      <div class="d-flex align-content-start flex-wrap">
+  <% @upcoming.each_with_index do |event, i| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.date %> on <%= event.place %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= event.creator.username %></h6>
+          <p class="card-text"><%= event.description %></p>
+          <p><%= link_to "Plus d'infos", event_path(event.id), class: "btn btn-outline-secondary" %></p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+<hr>
   <div class="container">
     <h4>Past events :</h4>
-      <% @past.each_with_index do |event, i| %>
-        <div class="form-group border border-muted">
-          <p><%= event.description %></p>
-          <p><%= event.date %></p>
-          <p><%= event.place %></p>
-          <%= link_to "Plus d'infos", event_path(event.id), class: "btn btn-outline-secondary" %>
+      <div class="d-flex align-content-start flex-wrap">
+  <% @past.each_with_index do |event, i| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= event.date %> on <%= event.place %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= event.creator.username %></h6>
+          <p class="card-text"><%= event.description %></p>
+          <p><%= link_to "Plus d'infos", event_path(event.id), class: "btn btn-outline-secondary" %></p>
         </div>
+      </div>
     <% end %>
+    </div>
   </div>
-  <%= link_to "Créer un évènement", new_event_path, class: "btn btn-warning" %>
+<hr>
+  <div class="container">
+    <%= link_to "Créer un évènement", new_event_path, class: "btn btn-warning" %>
+  </div>
 <% else %>
 <br>
 <h1>Connectez-vous svp</h1>

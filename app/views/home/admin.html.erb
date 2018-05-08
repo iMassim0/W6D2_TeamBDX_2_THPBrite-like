@@ -1,0 +1,26 @@
+
+  <div class="content">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Pseudo</th>
+          <th scope="col">Email</th>
+          <th scope="col">Permit?</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each_with_index do |user, i| %>
+        <tr>
+          <th scope="row"><%= i+1 %></th>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.valid? %></td>
+        </tr>
+          <% end %>
+      </tbody>
+    </table>
+
+  </div>

@@ -24,6 +24,7 @@ class EventsController < ApplicationController
     if user_signed_in?
       @events = Event.all
       events_aging(@events)
+      creator(@events)
       @attending_list = attending?
     else
       flash[:danger] = "Veuillez vous connecter pour accéder à la liste des évènements."

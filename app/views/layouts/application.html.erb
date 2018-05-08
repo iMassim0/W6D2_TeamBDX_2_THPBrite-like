@@ -12,7 +12,11 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <%= yield %>
+    <p class="text-info"><%= notice %></p>
+    <p class="text-danger"><%= alert %></p>
+    <div class="start">
+      <%= yield %>
+    </div>
     <!-- <%= debug user_signed_in? %>
     <%= debug session.to_h %> -->
     <%= render 'layouts/footer' %>
