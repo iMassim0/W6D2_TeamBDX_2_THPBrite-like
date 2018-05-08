@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-
+  root 'home#index'
   resources :events
   devise_for :users
-  root 'home#index'
   get "/admin", to: "home#admin", as: "admin"
   post "/events/subscribe", to: "events#subscribe", as: "subscribe"
   post "/events/unsubscribe", to: "events#unsubscribe", as: "unsubscribe"

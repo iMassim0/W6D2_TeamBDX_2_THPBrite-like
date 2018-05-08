@@ -36,7 +36,6 @@ class EventsController < ApplicationController
     puts params
     if user_signed_in?
       @event = Event.find(params[:id])
-      @attending_list = attending?
     else
       redirect_to new_user_session_path
     end
