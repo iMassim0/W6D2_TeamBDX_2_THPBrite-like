@@ -7,8 +7,11 @@
 <p>Rendez-vous : <%= @event.place %></p>
 </div>
 <div class="form-group border">
+<% if !@event.attendees.include?(current_user) %>
 <%= link_to 'Subscribe', {:action => :subscribe, :event => @event}, :method => :post, class: "btn btn-success" %>
+<% else %>
 <%= link_to 'Unsubscribe', {:action => :unsubscribe, :event => @event}, :method => :post, class: "btn btn-danger" %>
+<% end %>
 </div>
 <div class="form-group border">
   <h4>Liste des participants</h4>

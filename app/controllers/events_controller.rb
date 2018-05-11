@@ -24,6 +24,7 @@ class EventsController < ApplicationController
     if user_signed_in?
       @events = Event.all
       events_aging(@events)
+      @attending_list = attending?
       creator(@events)
     else
       flash[:alert] = "Veuillez vous connecter pour accéder à la liste des évènements."
@@ -32,8 +33,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    puts "salut"
-    puts params
     if user_signed_in?
       @event = Event.find(params[:id])
     else

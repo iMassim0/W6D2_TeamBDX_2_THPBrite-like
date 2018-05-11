@@ -6,7 +6,6 @@ class HomeController < ApplicationController
       creator(@events)
     else
       flash[:danger] = "Veuillez vous connecter pour accéder à la liste des évènements."
-      redirect_to new_user_session_path
     end
   end
 

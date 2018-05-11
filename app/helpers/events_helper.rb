@@ -23,4 +23,15 @@ def creator(events)
       end
     end
   end
+
+def attending?
+  @attending = []
+  @user = current_user
+  @user.attending_events.each do |event|
+    if event.date > Time.now
+      @attending << event
+    end
+  end
+end
+
 end
